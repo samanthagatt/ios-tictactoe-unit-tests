@@ -28,8 +28,8 @@ class GameAITests: XCTestCase {
         try! board.place(mark: .x, on: (0, 1))
         try! board.place(mark: .o, on: (1, 1))
         try! board.place(mark: .x, on: (0, 2))
-        XCTAssertTrue(game(board: board, isWonBy: .x))
-        XCTAssertFalse(game(board: board, isWonBy: .o))
+        XCTAssertTrue(checkGame(board: board, isWonBy: .x))
+        XCTAssertFalse(checkGame(board: board, isWonBy: .o))
     }
     
     func testWinCheckingVertical1() {
@@ -43,8 +43,8 @@ class GameAITests: XCTestCase {
         try! board.place(mark: .o, on: (1, 1))
         try! board.place(mark: .x, on: (0, 1))
         try! board.place(mark: .o, on: (1, 2))
-        XCTAssertTrue(game(board: board, isWonBy: .o))
-        XCTAssertFalse(game(board: board, isWonBy: .x))
+        XCTAssertTrue(checkGame(board: board, isWonBy: .o))
+        XCTAssertFalse(checkGame(board: board, isWonBy: .x))
     }
     
     func testWinCheckingVertical2() {
@@ -58,8 +58,8 @@ class GameAITests: XCTestCase {
         try! board.place(mark: .o, on: (2, 0))
         try! board.place(mark: .o, on: (2, 1))
         try! board.place(mark: .o, on: (2, 2))
-        XCTAssertTrue(game(board: board, isWonBy: .o))
-        XCTAssertFalse(game(board: board, isWonBy: .x))
+        XCTAssertTrue(checkGame(board: board, isWonBy: .o))
+        XCTAssertFalse(checkGame(board: board, isWonBy: .x))
     }
     
     func testWinCheckingHorizontal0() {
@@ -73,8 +73,8 @@ class GameAITests: XCTestCase {
         try! board.place(mark: .x, on: (2, 0))
         try! board.place(mark: .o, on: (0, 1))
         try! board.place(mark: .o, on: (1, 1))
-        XCTAssertTrue(game(board: board, isWonBy: .x))
-        XCTAssertFalse(game(board: board, isWonBy: .o))
+        XCTAssertTrue(checkGame(board: board, isWonBy: .x))
+        XCTAssertFalse(checkGame(board: board, isWonBy: .o))
     }
     
     func testWinCheckingHorizontal1() {
@@ -88,8 +88,8 @@ class GameAITests: XCTestCase {
         try! board.place(mark: .o, on: (0, 1))
         try! board.place(mark: .o, on: (1, 1))
         try! board.place(mark: .o, on: (2, 1))
-        XCTAssertTrue(game(board: board, isWonBy: .o))
-        XCTAssertFalse(game(board: board, isWonBy: .x))
+        XCTAssertTrue(checkGame(board: board, isWonBy: .o))
+        XCTAssertFalse(checkGame(board: board, isWonBy: .x))
     }
     
     func testWinCheckingHorizontal2() {
@@ -103,8 +103,8 @@ class GameAITests: XCTestCase {
         try! board.place(mark: .o, on: (0, 2))
         try! board.place(mark: .o, on: (1, 2))
         try! board.place(mark: .o, on: (2, 2))
-        XCTAssertTrue(game(board: board, isWonBy: .o))
-        XCTAssertFalse(game(board: board, isWonBy: .x))
+        XCTAssertTrue(checkGame(board: board, isWonBy: .o))
+        XCTAssertFalse(checkGame(board: board, isWonBy: .x))
     }
     
     func testWinCheckingDiagonal0() {
@@ -118,8 +118,8 @@ class GameAITests: XCTestCase {
         try! board.place(mark: .x, on: (2, 2))
         try! board.place(mark: .o, on: (0, 2))
         try! board.place(mark: .o, on: (1, 2))
-        XCTAssertTrue(game(board: board, isWonBy: .x))
-        XCTAssertFalse(game(board: board, isWonBy: .o))
+        XCTAssertTrue(checkGame(board: board, isWonBy: .x))
+        XCTAssertFalse(checkGame(board: board, isWonBy: .o))
     }
     
     func testWinCheckingDiagonal1() {
@@ -133,8 +133,8 @@ class GameAITests: XCTestCase {
         try! board.place(mark: .o, on: (0, 2))
         try! board.place(mark: .x, on: (1, 2))
         try! board.place(mark: .x, on: (0, 0))
-        XCTAssertTrue(game(board: board, isWonBy: .o))
-        XCTAssertFalse(game(board: board, isWonBy: .x))
+        XCTAssertTrue(checkGame(board: board, isWonBy: .o))
+        XCTAssertFalse(checkGame(board: board, isWonBy: .x))
     }
     
     func testIncompleteGame() {
@@ -144,8 +144,8 @@ class GameAITests: XCTestCase {
          - - -
          */
         XCTAssertFalse(board.isFull)
-        XCTAssertFalse(game(board: board, isWonBy: .x))
-        XCTAssertFalse(game(board: board, isWonBy: .o))
+        XCTAssertFalse(checkGame(board: board, isWonBy: .x))
+        XCTAssertFalse(checkGame(board: board, isWonBy: .o))
     }
 
     func testCatsGame() {
@@ -164,7 +164,7 @@ class GameAITests: XCTestCase {
         try! board.place(mark: .x, on: (1, 2))
         try! board.place(mark: .o, on: (2, 2))
         XCTAssertTrue(board.isFull)
-        XCTAssertFalse(game(board: board, isWonBy: .x))
-        XCTAssertFalse(game(board: board, isWonBy: .o))
+        XCTAssertFalse(checkGame(board: board, isWonBy: .x))
+        XCTAssertFalse(checkGame(board: board, isWonBy: .o))
     }
 }

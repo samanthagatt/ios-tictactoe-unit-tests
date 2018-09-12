@@ -26,13 +26,13 @@ struct Game {
         guard let activePlayer = activePlayer else { throw NSError() }
         try board.place(mark: activePlayer, on: coordinate)
         
-        if game(board: board, isWonBy: .x) {
+        if checkGame(board: board, isWonBy: .x) {
             gameIsOver = true
             winningPlayer = .x
             self.activePlayer = nil
             return
         }
-        if game(board: board, isWonBy: .o) {
+        if checkGame(board: board, isWonBy: .o) {
             gameIsOver = true
             winningPlayer = .o
             self.activePlayer = nil
