@@ -16,6 +16,7 @@
 		9DA41C672148B945001A3F45 /* GameAI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DA41C662148B945001A3F45 /* GameAI.swift */; };
 		9DA41C712148DE1B001A3F45 /* BoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DA41C702148DE1B001A3F45 /* BoardViewController.swift */; };
 		D6663DFE214966F500D3A3A5 /* GameBoardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6663DFD214966F500D3A3A5 /* GameBoardTests.swift */; };
+		D6663E00214971A800D3A3A5 /* GameAI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6663DFF214971A800D3A3A5 /* GameAI.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +43,7 @@
 		D6663DF32149662D00D3A3A5 /* TicTacToeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TicTacToeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6663DF72149662D00D3A3A5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D6663DFD214966F500D3A3A5 /* GameBoardTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameBoardTests.swift; sourceTree = "<group>"; };
+		D6663DFF214971A800D3A3A5 /* GameAI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameAI.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				D6663DFD214966F500D3A3A5 /* GameBoardTests.swift */,
+				D6663DFF214971A800D3A3A5 /* GameAI.swift */,
 				D6663DF72149662D00D3A3A5 /* Info.plist */,
 			);
 			path = TicTacToeTests;
@@ -228,6 +231,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D6663DFE214966F500D3A3A5 /* GameBoardTests.swift in Sources */,
+				D6663E00214971A800D3A3A5 /* GameAI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
