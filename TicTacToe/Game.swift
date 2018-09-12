@@ -8,21 +8,21 @@
 
 import Foundation
 
-class Game {
+struct Game {
     
     private(set) var board = GameBoard()
     var activePlayer: GameBoard.Mark? = .x
     var gameIsOver = false
     var winningPlayer: GameBoard.Mark? = nil
     
-    func restart() {
+    mutating func restart() {
         board = GameBoard()
         gameIsOver = false
         activePlayer = .x
         winningPlayer = nil
     }
     
-    func makeMark(at coordinate: Coordinate) throws {
+    mutating func makeMark(at coordinate: Coordinate) throws {
         guard let activePlayer = activePlayer else { return }
         try board.place(mark: activePlayer, on: coordinate)
         if board.isFull {
