@@ -13,7 +13,7 @@ class GameTests: XCTestCase {
     
     var game = Game()
     
-    override func tearDown() {
+    override func setUp() {
         game = Game()
     }
     
