@@ -93,7 +93,7 @@ class GameTests: XCTestCase {
         game.restart()
         XCTAssertFalse(game.gameIsOver)
         XCTAssertTrue(game.board[(0, 0)] == nil)
-        XCTAssertTrue(game.coordinates.count == 0)
+        XCTAssertTrue(game.playedCoordinates.count == 0)
     }
     
     func testUndoingWhenGameIsOver() {
@@ -107,9 +107,9 @@ class GameTests: XCTestCase {
         try! game.makeMark(at: (1, 2))
         try! game.makeMark(at: (2, 2))
         
-        let beforeUndo = game.coordinates
+        let beforeUndo = game.playedCoordinates
         game.undo()
-        let afterUndo = game.coordinates
+        let afterUndo = game.playedCoordinates
         
         XCTAssertTrue(beforeUndo.count == afterUndo.count)
         XCTAssertTrue(game.board[(2, 2)] == .x)
