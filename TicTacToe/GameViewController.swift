@@ -34,6 +34,9 @@ class GameViewController: UIViewController, BoardViewControllerDelegate {
     
     @IBOutlet weak var statusLabel: UILabel!
     
+    @IBAction func undoMove(_ sender: Any) {
+        game.undo()
+    }
     @IBAction func restartGame(_ sender: Any) {
         game.restart()
     }

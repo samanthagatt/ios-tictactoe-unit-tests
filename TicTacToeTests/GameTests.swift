@@ -93,5 +93,53 @@ class GameTests: XCTestCase {
         game.restart()
         XCTAssertFalse(game.gameIsOver)
         XCTAssertTrue(game.board[(0, 0)] == nil)
+        XCTAssertTrue(game.coordinates.count == 0)
+    }
+    
+    func testUndoingWhenGameIsOver() {
+        try! game.makeMark(at: (1, 0))
+        try! game.makeMark(at: (0, 0))
+        try! game.makeMark(at: (0, 1))
+        try! game.makeMark(at: (1, 1))
+        try! game.makeMark(at: (2, 1))
+        try! game.makeMark(at: (2, 0))
+        try! game.makeMark(at: (0, 2))
+        try! game.makeMark(at: (1, 2))
+        try! game.makeMark(at: (2, 2))
+        
+        let beforeUndo = game.coordinates
+        game.undo()
+        let afterUndo = game.coordinates
+        
+        XCTAssertTrue(beforeUndo.count == afterUndo.count)
+        XCTAssertTrue(game.board[(2, 2)] == .x)
+    }
+    
+    func testUndoing() {
+        try! game.makeMark(at: (1, 0))
+        try! game.makeMark(at: (0, 0))
+        try! game.makeMark(at: (0, 1))
+        try! game.makeMark(at: (1, 1))
+        try! game.makeMark(at: (2, 1))
+        try! game.makeMark(at: (2, 0))
+        try! game.makeMark(at: (0, 2))
+        try! game.makeMark(at: (1, 2))
+        
+        game.undo()
+        XCTAssertTrue(game.board[(1, 2)] == nil)
+        game.undo()
+        XCTAssertTrue(game.board[(0, 2)] == nil)
+        game.undo()
+        XCTAssertTrue(game.board[(2, 0)] == nil)
+        game.undo()
+        XCTAssertTrue(game.board[(2, 1)] == nil)
+        game.undo()
+        XCTAssertTrue(game.board[(1, 1)] == nil)
+        game.undo()
+        XCTAssertTrue(game.board[(0, 1)] == nil)
+        game.undo()
+        XCTAssertTrue(game.board[(0, 0)] == nil)
+        game.undo()
+        XCTAssertTrue(game.board[(1, 0)] == nil)
     }
 }
